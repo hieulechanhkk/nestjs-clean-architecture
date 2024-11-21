@@ -3,8 +3,8 @@ import { TypeOrmModule, TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { DatabaseConfig } from 'src/domain/config/database.interface';
 import { EnvironmentConfigService } from '../environment-config/environment-config.service';
 
-export const getTypeOrmConfig = (config: DatabaseConfig) =>
-  ({
+export const getTypeOrmConfig = (config: DatabaseConfig) => {
+  return {
     type: 'postgres',
     host: config.getDatabaseHost(),
     port: config.getDatabasePort(),
@@ -16,7 +16,8 @@ export const getTypeOrmConfig = (config: DatabaseConfig) =>
     ssl: {
       rejectUnauthorized: false,
     },
-  }) as TypeOrmModuleOptions;
+  } as TypeOrmModuleOptions;
+};
 
 @Module({
   imports: [
