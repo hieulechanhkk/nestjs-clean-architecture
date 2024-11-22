@@ -1,6 +1,13 @@
 import { UserWithoutPassword } from '../model/user.model';
 
-export interface UserRepository {
+export interface IUserRepository {
+  createUserWithoutPassword(
+    user: UserWithoutPassword,
+  ): Promise<UserWithoutPassword>;
+  createUserWithPassword(
+    user: UserWithoutPassword,
+  ): Promise<UserWithoutPassword>;
+
   getAllUsers(): Promise<UserWithoutPassword[]>;
   getUserById(id: number): Promise<UserWithoutPassword>;
   getUserByEmail(email: string): Promise<UserWithoutPassword>;

@@ -1,6 +1,6 @@
 export class UserWithoutPassword {
   id: number;
-  role: string;
+  role: string[];
   email: string;
   username: string;
   hashRefreshToken: string;
