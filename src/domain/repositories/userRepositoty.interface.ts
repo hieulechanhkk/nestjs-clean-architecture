@@ -1,4 +1,4 @@
-import { UserWithoutPassword } from '../model/user.model';
+import { UserModel, UserWithoutPassword } from '../model/user.model';
 
 export interface IUserRepository {
   createUserWithoutPassword(
@@ -9,9 +9,9 @@ export interface IUserRepository {
   ): Promise<UserWithoutPassword>;
 
   getAllUsers(): Promise<UserWithoutPassword[]>;
-  getUserById(id: number): Promise<UserWithoutPassword>;
-  getUserByEmail(email: string): Promise<UserWithoutPassword>;
-  getUserByUserName(username: string): Promise<UserWithoutPassword>;
+  getUserById(id: number): Promise<UserModel>;
+  getUserByEmail(email: string): Promise<UserModel>;
+  getUserByUserName(username: string): Promise<UserModel>;
 
   updateLastLogin(id: number): Promise<void>;
   updateRole(id: number, role: string): Promise<void>;

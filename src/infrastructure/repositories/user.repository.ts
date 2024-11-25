@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { UserWithoutPassword } from 'src/domain/model/user.model';
+import { UserModel, UserWithoutPassword } from 'src/domain/model/user.model';
 import { IUserRepository } from 'src/domain/repositories/userRepositoty.interface';
 
 @Injectable()
@@ -20,16 +20,16 @@ export class UserRepository implements IUserRepository {
     return Promise.resolve([]);
   }
 
-  getUserById(id: number): Promise<UserWithoutPassword> {
-    return Promise.resolve({ id } as UserWithoutPassword);
+  getUserById(id: number): Promise<UserModel> {
+    return Promise.resolve({ id } as UserModel);
   }
 
-  getUserByEmail(email: string): Promise<UserWithoutPassword> {
-    return Promise.resolve({ id: 1, email } as UserWithoutPassword);
+  getUserByEmail(email: string): Promise<UserModel> {
+    return Promise.resolve({ id: 1, email } as UserModel);
   }
 
-  getUserByUserName(username: string): Promise<UserWithoutPassword> {
-    return Promise.resolve({ id: 1, username } as UserWithoutPassword);
+  getUserByUserName(username: string): Promise<UserModel> {
+    return Promise.resolve({ id: 1, username } as UserModel);
   }
 
   updateLastLogin(id: number): Promise<void> {

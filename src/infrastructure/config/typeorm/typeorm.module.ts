@@ -12,10 +12,10 @@ export const getTypeOrmConfig = (config: DatabaseConfig) => {
     password: config.getDatabasePassword(),
     database: config.getDatabaseName(),
     entities: [__dirname + './../../**/*.entity{.ts,.js}'],
-    synchronize: false,
-    ssl: {
-      rejectUnauthorized: false,
-    },
+    synchronize: process.env.NODE_ENV !== 'production',
+    // ssl: {
+    //   rejectUnauthorized: false,
+    // },
   } as TypeOrmModuleOptions;
 };
 
