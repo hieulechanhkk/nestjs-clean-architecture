@@ -24,22 +24,22 @@ export class EnvironmentConfigService implements DatabaseConfig, IJwtConfig {
   }
 
   getDatabaseHost(): string {
-    return this.configService.get<string>('DB_HOST');
+    return this.configService.get<string>('DATABASE_HOST');
   }
 
   getDatabasePort(): number {
-    return this.configService.get<number>('DB_PORT');
+    return this.configService.get<number>('DATABASE_PORT');
   }
 
   getDatabaseUsername(): string {
-    return this.configService.get<string>('DB_USERNAME');
+    return this.configService.get<string>('DATABASE_USER');
   }
 
   getDatabasePassword(): string {
-    return this.configService.get<string>('DB_PASSWORD');
+    return this.configService.get<string>('DATABASE_PASSWORD');
   }
 
   getDatabaseName(): string {
-    return this.configService.get<string>('DB_NAME');
+    return this.configService.get<string>('DATABASE_NAME');
   }
 }
