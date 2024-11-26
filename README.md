@@ -1,85 +1,187 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# NestJS Todo Clean Architecture
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+This project is a simple application built using NestJS and follows the principles of Clean Architecture. The goal is to create a maintainable, testable, and scalable application.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## What is Clean Architecture?
 
-## Description
+Clean Architecture is a software design philosophy that emphasizes the separation of concerns and the independence of the business logic from external factors such as databases, frameworks, and user interfaces. The main idea is to create a system that is easy to maintain, test, and extend over time.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+![Clean Architecture Diagram](https://miro.medium.com/v2/resize:fit:720/format:webp/1*gNMlCdPkghf_2F8v3MGtqA.png)
 
-## Project setup
+### Key Principles of Clean Architecture
+
+- **Independence**: The business logic should be independent of frameworks, databases, and user interfaces.
+- **Testability**: The system should be easy to test, with business rules that can be tested independently of external factors.
+- **Maintainability**: The system should be easy to maintain and understand, with clear separation of concerns.
+- **Scalability**: The architecture should support the growth and evolution of the system over time.
+
+### Layers of Clean Architecture
+
+The project is divided into several layers:
+
+- **Domain**: Contains the business logic and entities.
+- **Application**: Contains use cases and service interfaces.
+- **Infrastructure**: Contains implementations of the service interfaces, database models, and external services.
+- **Presentation**: Contains the controllers and API routes.
+
+![Clean Architecture Diagram](https://miro.medium.com/max/1400/1*ZdlHz8B0-qu9Y-QO3AXR_w.png)
+
+## Project Structure
+
+The project is divided into several layers:
+
+- **Domain**: Contains the business logic and entities.
+- **Application**: Contains use cases and service interfaces.
+- **Infrastructure**: Contains implementations of the service interfaces, database models, and external services.
+- **Presentation**: Contains the controllers and API routes.
+
+## Getting Started
+
+Follow these steps to set up and run the project locally.
+
+### Prerequisites
+
+- Node.js (>= 14.x)
+- npm (>= 6.x)
+- PostgreSQL (or any other preferred database)
+
+### Installation
+
+1. **Clone the repository:**
+
+  ```bash
+  git clone https://github.com/hieulechanhkk/nestjs-clean-architecture.git
+  
+  cd nestjs-clean-architecture
+  ```
+
+2. **Install dependencies:**
+
+  ```bash
+  npm install
+  ```
+
+3. **Set up environment variables:**
+
+  Create a `.env` file in the root directory and add the following variables:
+
+  ```env
+  DATABASE_HOST=localhost
+  DATABASE_PORT=5432
+  DATABASE_USER=your_db_user
+  DATABASE_PASSWORD=your_db_password
+  DATABASE_NAME=your_db_name
+  ```
+
+4. **Run database migrations:**
+
+  ```bash
+  npm run typeorm migration:run
+  ```
+
+5. **Start the application:**
+
+  ```bash
+  npm run start:dev
+  ```
+
+### Running Tests
+
+To run the tests, use the following command:
 
 ```bash
-$ yarn install
+npm run test
 ```
 
-## Compile and run the project
+### API Documentation
 
-```bash
-# development
-$ yarn run start
+The API documentation is available at `http://localhost:3000/api` when the application is running.
 
-# watch mode
-$ yarn run start:dev
+## Contributing
 
-# production mode
-$ yarn run start:prod
-```
-
-## Run tests
-
-```bash
-# unit tests
-$ yarn run test
-
-# e2e tests
-$ yarn run test:e2e
-
-# test coverage
-$ yarn run test:cov
-```
-
-## Resources
-
-Check out a few resources that may come in handy when working with NestJS:
-
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+Contributions are welcome! Please open an issue or submit a pull request.
 
 ## License
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+This project is licensed under the MIT License. NestJS Clean Architecture
+
+This project is a simple application built using NestJS and follows the principles of Clean Architecture. The goal is to create a maintainable, testable, and scalable application.
+
+## Project Structure
+
+The project is divided into several layers:
+
+- **Domain**: Contains the business logic and entities.
+- **Application**: Contains use cases and service interfaces.
+- **Infrastructure**: Contains implementations of the service interfaces, database models, and external services.
+- **Presentation**: Contains the controllers and API routes.
+
+## Getting Started
+
+Follow these steps to set up and run the project locally.
+
+### Prerequisites
+
+- Node.js (>= 14.x)
+- npm (>= 6.x)
+- PostgreSQL (or any other preferred database)
+
+### Installation
+
+1. **Clone the repository:**
+
+  ```bash
+  git clone https://github.com/hieulechanhkk/nestjs-clean-architecture.git
+
+  cd nestjs-clean-architecture
+  ```
+
+2. **Install dependencies:**
+
+  ```bash
+  npm install
+  ```
+
+3. **Set up environment variables:**
+
+  Create a `.env` file in the root directory and add the following variables:
+
+  ```env
+  DATABASE_HOST=localhost
+  DATABASE_PORT=5432
+  DATABASE_USER=your_db_user
+  DATABASE_PASSWORD=your_db_password
+  DATABASE_NAME=your_db_name
+  ```
+
+4. **Run database migrations:**
+
+  ```bash
+  npm run typeorm migration:run
+  ```
+
+5. **Start the application:**
+
+  ```bash
+  npm run start:dev
+  ```
+
+### Running Tests
+
+To run the tests, use the following command:
+
+```bash
+npm run test
+```
+
+### API Documentation
+
+The API documentation is available at `http://localhost:3000/api` when the application is running.
+
+## Contributing
+
+Contributions are welcome! Please open an issue or submit a pull request.
+
+## License
+
+This project is licensed under the MIT License.
